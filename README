@@ -77,3 +77,17 @@ git checkout "код коммита" - вернуть до состояния э
 
 -----------------------
 Подпись коммитов
+
+sudo apt install gnupg
+gpg --full-generate-key  
+gpg --list-secret-keys --keyid-format LONG  # смотрим наш id
+git config --global user.signingkey YOUR_KEY_ID
+git config --global commit.gpgSign true
+git log --show-signature
+git commit -m "update README file" -S --key YOUR_KEY_ID   # с указанием ключа
+touch ~/.gnupg/allowed_signers.txt 
+	1E0FC14E157E7F00
+	you@example.com
+git config --global gpg.ssh.allowedSignersFile ~/.gnupg/allowed_signers.txt
+chmod 600 ~/.gnupg/allowed_signers.txt
+gpg --armor --export ваш_идентификатор_ключа  # закинуть через web паблик ключ
