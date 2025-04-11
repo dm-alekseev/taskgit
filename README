@@ -59,3 +59,21 @@ vi .gitignore
 git add .gitignore
 git commit -m "add gitignore"
 git push origin master
+
+
+Если случайно команда git add . захватила с собой нежелательные файлы, их можно убрать командой
+git rm --cached имя_файла
+
+Ветки
+В Git ветки - это указатели на коммиты, позволяющие работать над разными версиями кода независимо друг от друга. Основная ветка обычно называется master (или main в новых проектах).
+
+git branch develop
+git checkout develop
+Switched to branch 'develop'
+
+git log --oneline - посмотреть все коммиты.
+git checkout . - восстановить все.
+git checkout "код коммита" - вернуть до состояния этого коммита.
+
+-----------------------
+Подпись коммитов
