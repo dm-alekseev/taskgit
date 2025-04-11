@@ -59,3 +59,35 @@ vi .gitignore
 git add .gitignore
 git commit -m "add gitignore"
 git push origin master
+
+
+Если случайно команда git add . захватила с собой нежелательные файлы, их можно убрать командой
+git rm --cached имя_файла
+
+Ветки
+В Git ветки - это указатели на коммиты, позволяющие работать над разными версиями кода независимо друг от друга. Основная ветка обычно называется master (или main в новых проектах).
+
+git branch develop
+git checkout develop
+Switched to branch 'develop'
+
+git log --oneline - посмотреть все коммиты.
+git checkout . - восстановить все.
+git checkout "код коммита" - вернуть до состояния этого коммита.
+
+-----------------------
+Подпись коммитов
+
+sudo apt install gnupg
+gpg --full-generate-key  
+gpg --list-secret-keys --keyid-format LONG  # смотрим наш id
+git config --global user.signingkey YOUR_KEY_ID
+git config --global commit.gpgSign true
+git log --show-signature
+git commit -m "update README file" -S --key YOUR_KEY_ID   # с указанием ключа
+touch ~/.gnupg/allowed_signers.txt 
+	1E0FC14E157E7F00
+	you@example.com
+git config --global gpg.ssh.allowedSignersFile ~/.gnupg/allowed_signers.txt
+chmod 600 ~/.gnupg/allowed_signers.txt
+gpg --armor --export ваш_идентификатор_ключа  # закинуть через web паблик ключ
