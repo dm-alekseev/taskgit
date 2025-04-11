@@ -91,3 +91,6 @@ touch ~/.gnupg/allowed_signers.txt
 git config --global gpg.ssh.allowedSignersFile ~/.gnupg/allowed_signers.txt
 chmod 600 ~/.gnupg/allowed_signers.txt
 gpg --armor --export ваш_идентификатор_ключа  # закинуть через web паблик ключ
+
+
+git log --oneline --graph --decorate --all # просмотреть историю коммитов для вашей локальной ветки и удалённой
