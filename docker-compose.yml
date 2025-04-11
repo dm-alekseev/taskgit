@@ -1,0 +1,28 @@
+services:
+  nginx:
+    image: nginx:alpine
+    working_dir: /etc/nginx/
+    volumes:
+      - ./certs:/etc/nginx/certs
+      - ./conf:/etc/nginx/conf.d
+      - ./html:/usr/share/nginx/html
+      - ./log:/var/log/nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    command: ["nginx", "-g", "daemon off;"]
+    networks:
+     - backend
+
+  shell:
+    image: alpine
+    volumes:
+      - ./log:/usr/log
+      - ./script:/usr/script
+    command: ["/bin/sh", "/usr/script/script.sh"]
+    networks:
+     - backend  
+         
+networks: 
+  backend:
+    driver: bridge 
