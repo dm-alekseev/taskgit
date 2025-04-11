@@ -1,0 +1,20 @@
+mkdir + file
+
+git init 
+
+git config --global user.name "dm-alekseev"  
+git config --global user.email "alekseev@stw.by"
+
+git config --global user.email
+alekseev@stw.by
+
+git config --global user.name  
+dm-alekseev
+
+git status
+
+git add .
+
+Коммит - своего рода снимок текущего состояния репозитория
+git commit -m "Initial commit"    
+-m, - это сообщение коммита, которое будет отражено в истории.
