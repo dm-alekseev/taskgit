@@ -1,14 +1,14 @@
 mkdir + file
 
-git init 
+git init
 
-git config --global user.name "dm-alekseev"  
+git config --global user.name "dm-alekseev"
 git config --global user.email "alekseev@stw.by"
 
 git config --global user.email
 alekseev@stw.by
 
-git config --global user.name  
+git config --global user.name
 dm-alekseev
 
 git status
@@ -16,5 +16,46 @@ git status
 git add .
 
 Коммит - своего рода снимок текущего состояния репозитория
-git commit -m "Initial commit"    
+git commit -m "Initial commit"
 -m, - это сообщение коммита, которое будет отражено в истории.
+
+git status
+git add README
+git commit -m "README add info"
+
+git add для обновления того, что будет закоммичено.
+git restore для отмены изменений в рабочей директории.
+ 
+
+ssh-keygen -C "alekseev@stw.by"
+В папке .ssh создать файл config:
+Host github.com
+HostName github.com
+User alekseev@stw.by
+IdentityFile ~/.ssh/taskgit
+
+Создаем репозиторий на github
+копируем ссылку git@github.com:dm-alekseev/taskgit.git
+Добавим ключ
+https://github.com/settings/ssh/new
+
+ssh -T git@github.com - проверим
+
+Добавим удаленный репозиторий в локальный с помощью команды git remote add origin ссылка. Проверить, что все добавилось, можно с git remote -v
+
+git remote add origin git@github.com:dm-alekseev/taskgit.git
+git remote -v
+origin git@github.com:dm-alekseev/taskgit.git (fetch)
+origin git@github.com:dm-alekseev/taskgit.git (push)
+
+origin - дефолтное название удаленного репозитория. Может быть любым, потому что у локального репозитория может быть много удаленных.
+
+git push
+Git не даст нам этого сделать, поскольку у ветки нет информации об отслеживании удаленной ветки, и Git подскажет, как сделать эту ветку отслеживаемой. Также нам предложена команда для задания отслеживания каждой ветки по дефолту, но я не использую данную опцию, поскольку не всегда всё, что я делаю локально, нужно отправлять на удаленный репозиторий: иногда нужна ветка, чтобы потестить что-то и удалить её после.
+git push --set-upstream origin master
+Enumerating objects: 6, done.
+
+vi .gitignore
+git add .gitignore
+git commit -m "add gitignore"
+git push origin master
