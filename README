@@ -99,6 +99,8 @@ git log --oneline --graph --decorate --all # просмотреть истори
 git hooks
 git config --global core.hookspath <hooks-directory-path>
 https://myaccount.google.com/apppasswords
+
+
   
 
 
