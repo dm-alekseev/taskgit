@@ -6,6 +6,7 @@ from credentials import *
 
 branch_name = sys.stdin.read().strip()
 commit_msg = sys.stdin.read().strip()
+
 print(branch_name)
 print(commit_msg)
 
