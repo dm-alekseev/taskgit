@@ -1,21 +1,15 @@
 import smtplib
-from email.mime.text import MIMEText
-from credentials import *
+from email.message import EmailMessage
 
-def send_email(subject, message, sender_email, sender_password, recipient_email, smtp_server, smtp_port):
-    try:
-        server = smtplib.SMTP(smtp_server, smtp_port)
-        #server.ehlo()
-        server.starttls()
-        server.login(sender_email, sender_password)
-        msg = MIMEText(message)
-        msg['Subject'] = subject
-        msg['From'] = sender_email
-        msg['To'] = recipient_email
-        server.send_message(msg)
-        server.quit()
-        print('Email sent successfully!')
-    except smtplib.SMTPException as e:
-        print(f"Error: Email could not be sent. {e}")
 
-    
+
+msg = EmailMessage()
+msg['Subject'] = 'Новый коммит!'
+msg['From'] = 'puhxxx@gmail.com'
+msg['To'] = 'a@stw.by'
+msg.set_content(f'Сделан коммит с текстом:')
+
+with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
+    server.login('puhxxx@gmail.com', 'caok opfy tbqa jjod')
+    server.send_message(msg)
+
