@@ -100,6 +100,8 @@ git hooks
 git config --global core.hookspath <hooks-directory-path>
 https://myaccount.google.com/apppasswords
 
+d
+
 
 
 
