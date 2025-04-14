@@ -14,6 +14,7 @@ msg['From'] = sender_email
 msg['To'] = recipient_email
 msg.set_content(f'Branch {commit_msg}')
 
+
 with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
     server.login(sender_email, sender_password)
     server.send_message(msg)
