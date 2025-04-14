@@ -5,7 +5,7 @@ from credentials import *
 def send_email(subject, message, sender_email, sender_password, recipient_email, smtp_server, smtp_port):
     try:
         server = smtplib.SMTP(smtp_server, smtp_port)
-        server.ehlo()
+        #server.ehlo()
         server.starttls()
         server.login(sender_email, sender_password)
         msg = MIMEText(message)
