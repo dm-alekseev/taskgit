@@ -12,7 +12,7 @@ msg = EmailMessage()
 msg['Subject'] = 'New commit'
 msg['From'] = sender_email
 msg['To'] = recipient_email
-msg.set_content('commit_msg')
+msg.set_content('{commit_msg}')
 
 
 with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
