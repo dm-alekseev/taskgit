@@ -1,11 +1,11 @@
 import smtplib
 from email.message import EmailMessage
-
+from credentials import *
 
 
 msg = EmailMessage()
 msg['Subject'] = 'Новый коммит!'
-msg['From'] = 'puhxxx@gmail.com'
+msg['From'] = sender_email
 msg['To'] = 'a@stw.by'
 msg.set_content(f'Сделан коммит с текстом:')
 
