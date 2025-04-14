@@ -1,0 +1,10 @@
+#!/bin/bash
+
+commit_msg=$(git log -1 --pretty=%B)
+
+branch_name=$(git rev-parse --abbrev-ref HEAD)
+
+echo "Current branch: $branch_name"
+
+echo   "$branch_name"  "$commit_msg"   |  python3 send_email.py
+
